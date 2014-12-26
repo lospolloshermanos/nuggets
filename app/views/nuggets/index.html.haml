@@ -1,0 +1,19 @@
+%h1 Listing nuggets
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @nuggets.each do |nugget|
+      %tr
+        %td= link_to 'Show', nugget
+        %td= link_to 'Edit', edit_nugget_path(nugget)
+        %td= link_to 'Destroy', nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Nugget', new_nugget_path
