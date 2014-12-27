@@ -36,6 +36,9 @@ class NuggetsController < ApplicationController
     respond_with(@nugget)
   end
 
+  def read_more
+  end
+  
   private
     def set_nugget
       @nugget = current_user.nuggets.find(params[:id])

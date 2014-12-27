@@ -1,17 +1,21 @@
-%h1 Nuggets
-
 - @nuggets.each do |nugget|
-  .large-12
-    %h3#feed-title= nugget.name
+
+  .large-12.columns.feed-wrapper
+    %h3.feed-title= nugget.name
     = link_to 'Show', nugget
     = link_to 'Edit', edit_nugget_path(nugget)
     = link_to 'Destroy', nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %ul.small-block-grid-5
     - nugget.fetch.each do |entry|
-      %li
-        %strong= entry.title
-        %p= raw "#{strip_tags(entry.summary)[0..144]} …" 
+      .large-12.columns.feed-entry
+        .small-12.columns
+          %h4= entry.title
+        - if image = Nokogiri::HTML(entry.content).css('img').first.try('[]', 'src')
+          .small-3.columns.feed-image= image_tag image, class: 'entry-image'
+          .small-8.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+        - else
+          .small-12.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+
     
 
 %br
