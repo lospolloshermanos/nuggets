@@ -11,10 +11,10 @@
         .small-12.columns
           %h4= entry.title
         - if image = Nokogiri::HTML(entry.content).css('img').first.try('[]', 'src')
-          .small-3.columns.feed-image= image_tag image, class: 'entry-image'
-          .small-8.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+          .large-3.columns.feed-image= image_tag image, class: 'entry-image'
+          .large-9.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
         - else
-          .small-12.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+          .large-12.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
 
     
 
