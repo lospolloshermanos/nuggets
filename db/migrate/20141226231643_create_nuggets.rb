@@ -9,5 +9,7 @@ class CreateNuggets < ActiveRecord::Migration
     end
 
     add_index :nuggets, :user_id
+    add_index :nuggets, :name
+    add_index :nuggets, :rss, unique: true
   end
 end

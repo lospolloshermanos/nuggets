@@ -2,7 +2,8 @@
   %ul.side-nav
     - @nuggets.each do |nugget|
       %li
-        = link_to nugget.name, nugget_path(nugget)
+        = image_tag nugget.favicon, class: 'feed-icon'
+        %span= nugget.name
 
 
 - @nuggets.each do |nugget|

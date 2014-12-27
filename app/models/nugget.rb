@@ -3,19 +3,21 @@ class Nugget < ActiveRecord::Base
   
   attr_accessor :feed, :entries
 
-  validates :rss, presence: true
+  validates :rss, presence: true, uniqueness: true
 
-  before_create :set_name
+  before_create :set_defaults
   
   def fetch
-  	self.feed = Feedjira::Feed.fetch_and_parse rss
-  	self.entries = feed.entries
+    self.feed = Feedjira::Feed.fetch_and_parse rss
+    self.entries = feed.entries
   end
 
   private
 
-  def set_name
-  	fetch 
-  	self.name ||= feed.title
+  def set_defaults
+    fetch
+    doc = Pismo::Document.new feed.url
+    self.favicon = doc.favicon
+    self.name = feed.title
   end
 end

@@ -5,10 +5,12 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'feedjira'
 gem 'foundation-rails'
-gem 'foundation-icons-sass-rails', github: "zaiste/foundation-icons-sass-rails", branch: 'v2.x'
+gem 'foundation-icons-sass-rails'
 gem 'haml-rails'
+gem 'httparty'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'pismo', github: 'peterc/pismo'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'rails_12factor', group: :production

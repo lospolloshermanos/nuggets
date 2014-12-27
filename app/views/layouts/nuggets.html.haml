@@ -4,9 +4,12 @@
   %body
     .container
       .sidebar.hide-for-small
-        %h3 Nuggets
-        %i.social.foundicon-rss
+        %h3 
+          Nuggets
+          %i.fi-rss
         = yield :sidebar
+
+      %p#notice= notice
       .row#main
         .large-12.columns= yield
 
