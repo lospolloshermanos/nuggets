@@ -1,17 +1,13 @@
 !!!
 %html
-  %head
-    %title Nuggets
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+  = render 'layouts/head'
   %body
       
     %nav.top-bar
       %ul.title-area
         %li.name
           %h1
-            = link_to "Nuggets", '#'
+            = link_to "Nuggets", root_path
       %section.top-bar-section
         %ul.right
           - if user_signed_in?

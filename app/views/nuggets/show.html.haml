@@ -1,5 +1,23 @@
 %p#notice= notice
 
+.row
+  .large-12.columns.feed-wrapper
+    %h3.feed-title= @nugget.name
+    = link_to 'Edit', edit_nugget_path(@nugget)
+    = link_to 'Destroy', @nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+- @nugget.fetch.each do |entry|
+  .feed-entry
+    .row
+      .large-12.columns
+        %h4= entry.title
+    - if image = Nokogiri::HTML(entry.content).css('img').first.try('[]', 'src')
+      .row
+        .large-3.columns.feed-image= image_tag image, class: 'entry-image'
+        .large-9.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+    - else
+      .large-12.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+
 
 = link_to 'Edit', edit_nugget_path(@nugget)
 \|

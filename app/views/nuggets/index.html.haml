@@ -1,20 +1,17 @@
 - @nuggets.each do |nugget|
+  .row
+    .large-12.columns
+      %h3.feed-title= nugget.name
+      = link_to 'Show', nugget
+      = link_to 'Edit', edit_nugget_path(nugget)
+      = link_to 'Destroy', nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  .large-12.columns.feed-wrapper
-    %h3.feed-title= nugget.name
-    = link_to 'Show', nugget
-    = link_to 'Edit', edit_nugget_path(nugget)
-    = link_to 'Destroy', nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-    - nugget.fetch.each do |entry|
-      .large-12.columns.feed-entry
-        .small-12.columns
-          %h4= entry.title
-        - if image = Nokogiri::HTML(entry.content).css('img').first.try('[]', 'src')
-          .large-3.columns.feed-image= image_tag image, class: 'entry-image'
-          .large-9.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
-        - else
-          .large-12.columns.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
+  - nugget.fetch.each do |entry|
+    .row.feed-entry
+      .large-12.columns
+        %h4= entry.title
+      .row
+        .large-12.columns= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
 
     
 

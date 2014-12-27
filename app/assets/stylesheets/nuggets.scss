@@ -3,12 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .feed-title {
-    color: white;
-    background-color: black;
+   padding: 50px 0px 50px 0px;
 }
 
 .feed-entry {
-    float: left;
     border-bottom: 1px solid #DCDCDC;
     padding-bottom: 20px;
     overflow:hidden; 
@@ -19,7 +17,7 @@
 }
 
 .feed-image{
-   width: 200px; 
+   width: 210px; 
    height: 106px;
    overflow: hidden; 
 }
