@@ -4,7 +4,7 @@ class NuggetsController < ApplicationController
   respond_to :html
 
   def index
-    @nuggets = Nugget.all
+    @nuggets = current_user.nuggets
     respond_with(@nuggets)
   end
 
@@ -13,7 +13,7 @@ class NuggetsController < ApplicationController
   end
 
   def new
-    @nugget = Nugget.new
+    @nugget = current_user.nuggets.build
     respond_with(@nugget)
   end
 
@@ -21,7 +21,7 @@ class NuggetsController < ApplicationController
   end
 
   def create
-    @nugget = Nugget.new(nugget_params)
+    @nugget = current_user.nuggets.build(nugget_params)
     @nugget.save
     respond_with(@nugget)
   end
@@ -38,10 +38,10 @@ class NuggetsController < ApplicationController
 
   private
     def set_nugget
-      @nugget = Nugget.find(params[:id])
+      @nugget = current_user.nuggets.find(params[:id])
     end
 
     def nugget_params
-      params[:nugget]
+      params[:nugget].permit(:name, :rss)
     end
 end
