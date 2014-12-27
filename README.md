@@ -1,7 +1,5 @@
 #Nuggets
  
-Nuggets is a simple RSS reader.
+Nuggets is a simple RSS reader. You can test it on http://nugget-rss.herokuapp.com/
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+**TODO:** A lot … I mean A LOT
