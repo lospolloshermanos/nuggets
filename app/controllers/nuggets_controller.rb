@@ -1,6 +1,6 @@
 class NuggetsController < ApplicationController
   before_action :set_nugget, only: [:show, :edit, :update, :destroy]
-
+  layout 'nuggets'
   respond_to :html
 
   def index

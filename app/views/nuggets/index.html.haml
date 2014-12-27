@@ -1,19 +1,20 @@
+- content_for :sidebar do
+  %ul.side-nav
+    - @nuggets.each do |nugget|
+      %li
+        = link_to nugget.name, nugget_path(nugget)
+
+
 - @nuggets.each do |nugget|
   .row
-    .large-12.columns
-      %h3.feed-title= nugget.name
-      = link_to 'Show', nugget
-      = link_to 'Edit', edit_nugget_path(nugget)
-      = link_to 'Destroy', nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .large-12.columns.feed-title
+      %h3= link_to nugget.name, nugget
 
   - nugget.fetch.each do |entry|
-    .row.feed-entry
-      .large-12.columns
-        %h4= entry.title
-      .row
-        .large-12.columns= "#{strip_tags( entry.content || entry.summary)[0..300]} …"
-
-    
+    .row
+      .large-12.columns.feed-line
+        %strong= entry.title
+        %span.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..60]} …"
 
 %br
 

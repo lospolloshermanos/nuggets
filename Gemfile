@@ -5,6 +5,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'feedjira'
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails', github: "zaiste/foundation-icons-sass-rails", branch: 'v2.x'
 gem 'haml-rails'
 # Use postgresql as the database for Active Record
 gem 'pg'

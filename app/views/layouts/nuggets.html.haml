@@ -1,0 +1,15 @@
+!!!
+%html
+  = render 'layouts/head'
+  %body
+    .container
+      .sidebar.hide-for-small
+        %h3 Nuggets
+        %i.social.foundicon-rss
+        = yield :sidebar
+      .row#main
+        .large-12.columns= yield
+
+  %footer
+    .row
+      .large-12.column.text-center.footer Los pollos hermanos © 2015

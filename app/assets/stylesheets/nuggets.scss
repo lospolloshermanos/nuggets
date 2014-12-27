@@ -2,30 +2,100 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.navigational-bar {
+  background-color: #212D48
+}
+
 .feed-title {
-   padding: 50px 0px 50px 0px;
+  background: black;
+  color: white;
+  h3 {
+    font-size: 1.2em;
+    a {
+      color: white;
+    }
+  }
 }
 
 .feed-entry {
-    border-bottom: 1px solid #DCDCDC;
-    padding-bottom: 20px;
-    overflow:hidden; 
-}
+  overflow:hidden;
+  padding: 5px 0px 10px 0;
+  border-bottom: 1px solid #DCDCDC;
 
-.feed-entry h4 {
-    font-size: 1.5em;
-}
-
-.feed-image{
-   width: 210px; 
-   height: 106px;
-   overflow: hidden; 
-}
-
-.feed-image img {
-    width: 100%; 
+  h4 {
+    font-size: 1.2em; 
+  }
 }
 
 .feed-summary {
-    color: #939393;
+  font-size: 0.9em;
+}
+
+.feed-line {
+  border-bottom: 1px solid #DCDCDC;
+  padding: 5px 0px 5px 10px;
+}
+
+.feed-image{
+  width: 180px; 
+  height: 106px;
+  overflow: hidden; 
+}
+
+.feed-image img {
+  width: 100%; 
+}
+
+.feed-summary {
+  color: #939393;
+}
+
+footer {
+  padding: 25px 0px 25px 0px;
+  color: white;
+  background-color: #212D48
+}
+
+
+.container {
+  //background: #ffffff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-x: hidden;
+  padding-left: 280px;
+  width: 100%;
+}
+
+.sidebar {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px;
+  
+  h3 {
+    margin: 0 0 0 0;
+    color: white;
+    background-color: #212D48;
+    padding: 0 0 0 10px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  body { -webkit-text-size-adjust: none; }
+        .container { padding-left: 0; }
+  .sidebar {
+    background: #ffffff;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 45px;
+    position: relative;
+    width: 100%;
+  }
 }
