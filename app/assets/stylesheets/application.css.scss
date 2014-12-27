@@ -16,3 +16,15 @@
 
  */
 @import 'foundation-icons';
+
+.clickable {
+	cursor: pointer;
+	color: #0099CC;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #DCDCDC;
+
+}
+.clickable:hover {
+	cursor: hand;
+	color: #00BFFF;
+}

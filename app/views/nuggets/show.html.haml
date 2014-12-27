@@ -1,8 +1,6 @@
 - content_for :sidebar do
   %ul.side-nav
-    %li
-      = link_to 'Back', nuggets_path
-
+    %li.clickable{ data: { href: nuggets_path} } Back
 .row
   .large-12.columns.feed-wrapper
     %h3.feed-title= @nugget.name
