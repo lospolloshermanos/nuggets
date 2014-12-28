@@ -5,16 +5,16 @@
         = image_tag nugget.favicon, class: 'feed-icon'
         %span= nugget.name
     %li= link_to raw('New Nugget <i class="fi-plus"></i>'), new_nugget_path
-
+    %li= link_to raw('Edit profile <i class="fi-pencil"></i>'),edit_user_registration_path
 
 - @nuggets.each do |nugget|
   .row
-    .large-12.columns.feed-title
+    .small-12.columns.feed-title
       %h3= link_to nugget.name, nugget
 
   - nugget.fetch.each do |entry|
     .row
-      .large-12.columns.feed-line
+      .small-12.columns.feed-line{ data: { href: entry.url } }
         %strong= entry.title
         %span.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..60]} …"
 

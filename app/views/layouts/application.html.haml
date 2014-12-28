@@ -7,7 +7,7 @@
       %ul.title-area
         %li.name
           %h1
-            = link_to "Nuggets", root_path
+            = link_to raw("Nuggets <i class='fi-rss'></i>"), root_path
       %section.top-bar-section
         %ul.right
           - if user_signed_in?
