@@ -25,7 +25,7 @@ class Nugget < ActiveRecord::Base
       self.entries.build({ 
         title: post.title, 
         summary: "#{strip_tags(post.summary[0..60])} …",
-        content: post.content || post.summary,
+        content: post.content || post.summary,
         author: post.author,
         url: post.url,
         published_at: post.published
