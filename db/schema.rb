@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227153919) do
+ActiveRecord::Schema.define(version: 20141230022923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "content"
+    t.string   "author"
+    t.boolean  "save",         default: false
+    t.string   "categories"
+    t.integer  "nugget_id"
+    t.datetime "published_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "summary"
+  end
+
+  add_index "entries", ["author"], name: "index_entries_on_author", using: :btree
+  add_index "entries", ["nugget_id"], name: "index_entries_on_nugget_id", using: :btree
+  add_index "entries", ["url"], name: "index_entries_on_url", using: :btree
 
   create_table "nuggets", force: :cascade do |t|
     t.string   "name"

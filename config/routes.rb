@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'nuggets#index'
 
-  resources :nuggets
+  resources :nuggets do
+    get '/get_content' => 'nuggets#get_content', on: :collection, as: :get_content
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

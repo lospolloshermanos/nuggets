@@ -7,8 +7,8 @@
     = link_to 'Edit', edit_nugget_path(@nugget)
     = link_to 'Destroy', @nugget, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-- @nugget.fetch.each do |entry|
-  .feed-entry
+- @nugget.entries.each do |entry|
+  .feed-entry{ data: { href: entry.url } }
     .row
       .large-12.columns
         %h4= entry.title
@@ -23,3 +23,7 @@
 = link_to 'Edit', edit_nugget_path(@nugget)
 \|
 = link_to 'Back', nuggets_path
+
+
+.row
+  .small-12.columns= render 'post_modal'

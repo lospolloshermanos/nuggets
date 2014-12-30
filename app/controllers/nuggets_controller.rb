@@ -36,7 +36,9 @@ class NuggetsController < ApplicationController
     respond_with(@nugget)
   end
 
-  def read_more
+  def get_content
+    entry = Entry.find_by_url params[:url]
+    render json: { title: entry.title, author: entry.author, content: entry.content, published: entry.published_at }, status: 200
   end
   
   private

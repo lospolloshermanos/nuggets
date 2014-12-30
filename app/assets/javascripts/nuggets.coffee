@@ -3,3 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  $('.feed-line, .feed-entry').on 'click', (e) ->
+    e.preventDefault()
+    that = $(this)
+
+    $.ajax
+      dataType: "json"
+      type : 'GET'
+      url: "/nuggets/get_content"
+      data: 
+        url: that.data('href')
+      success: (data, status) ->
+        $('#post-title').html(data.title)
+        $('#post-author').html("By " + data.author)
+        $('#post-date').html(data.published)
+        $('#post-content').html(data.content)
+        $('#post-modal').foundation('reveal', 'open');

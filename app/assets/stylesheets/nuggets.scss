@@ -19,12 +19,20 @@
 }
 
 .feed-entry {
+  cursor: pointer;
   overflow:hidden;
   padding: 5px 0px 10px 0;
   border-bottom: 1px solid #DCDCDC;
 
   h4 {
     font-size: 1.2em; 
+  }
+
+  &:hover {
+    -moz-box-shadow: 0 0 10px #ccc; 
+    -webkit-box-shadow: 0 0 10px #ccc; 
+    box-shadow: 0 0 10px #ccc;
+    cursor: hand;
   }
 }
 

@@ -12,10 +12,13 @@
     .small-12.columns.feed-title
       %h3= link_to nugget.name, nugget
 
-  - nugget.fetch.each do |entry|
+  - nugget.entries.each do |entry|
     .row
       .small-12.columns.feed-line{ data: { href: entry.url } }
         %strong= entry.title
         %span.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..60]} …"
 
 %br
+
+.row
+  .small-12.columns= render 'post_modal'
