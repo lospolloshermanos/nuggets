@@ -13,6 +13,7 @@ $ ->
       url: "/nuggets/get_content"
       data: 
         url: that.data('href')
+        nugget: that.data('nugget')
       success: (data, status) ->
         $('#post-title').html(data.title)
         $('#post-author').html("By " + data.author)

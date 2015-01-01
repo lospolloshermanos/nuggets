@@ -37,8 +37,11 @@ class NuggetsController < ApplicationController
   end
 
   def get_content
-    entry = Entry.find_by_url params[:url]
-    render json: { title: entry.title, author: entry.author, content: entry.content, published: entry.published_at }, status: 200
+    if entry = Entry.get_entry(current_user.nuggets.find(params[:nugget]), params[:url])
+      render json: entry, status: 200
+    else
+      render json: { error: 'Post not found' }, status: 422
+    end
   end
   
   private

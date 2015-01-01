@@ -12,9 +12,9 @@
     .small-12.columns.feed-title
       %h3= link_to nugget.name, nugget
 
-  - nugget.entries.each do |entry|
+  - nugget.fetch.each do |entry|
     .row
-      .small-12.columns.feed-line{ data: { href: entry.url } }
+      .small-12.columns.feed-line{ data: { href: entry.url, nugget: nugget.id } }
         %strong= entry.title
         %span.feed-summary= "#{strip_tags( entry.content || entry.summary)[0..60]} …"
 

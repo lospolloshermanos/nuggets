@@ -3,7 +3,7 @@ class Nugget < ActiveRecord::Base
 
   belongs_to :user
   has_many :entries
-  attr_accessor :feed, :posts
+  attr_accessor :feed, :fresh_entries
 
   validates :rss, presence: true, uniqueness: true
 
@@ -11,7 +11,7 @@ class Nugget < ActiveRecord::Base
 
   def fetch
     self.feed = Feedjira::Feed.fetch_and_parse rss
-    self.posts = feed.entries
+    self.fresh_entries = feed.entries
   end
 
   private
@@ -21,15 +21,5 @@ class Nugget < ActiveRecord::Base
     doc = Pismo::Document.new feed.url
     self.favicon = doc.favicon
     self.name = feed.title
-    posts.each do |post|
-      self.entries.build({ 
-        title: post.title, 
-        summary: "#{strip_tags(post.summary[0..60])} …",
-        content: post.content || post.summary,
-        author: post.author,
-        url: post.url,
-        published_at: post.published
-      })
-    end
   end
 end
